@@ -1,0 +1,20 @@
+
+<h2>New Game</h2>
+<div class="letter-grid">
+  <% @array.each do |letter| %>
+    <div class="game-letter">
+      <p><%= letter %></p>
+    </div>
+  <% end %>
+</div>
+<br>
+<h3>What is the longest word you can find ?</h3>
+<div class="form-container">
+  <form action="/score" method='post'>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :grid, @array %>
+    <input type="text" class="form-control" name="word" >
+<!--     <input type="hidden" value='<% @array%>' name="array"> -->
+    <input type="submit" value="Play" class='btn btn-light'>
+  </form>
+</div>
